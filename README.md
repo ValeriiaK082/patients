@@ -99,24 +99,14 @@ Accept: application/json
 
 ---
 
-## CI/CD Pipeline (GitLab)
-
-The `.gitlab-ci.yml` file defines 3 stages:
-
-
-| Stage    | Description                                                           |
-| -------- | --------------------------------------------------------------------- |
-| `test`   | Runs Laravel unit and integration tests                               |
-| `build`  | Builds the Vue.js frontend                                            |
-| `docker` | Builds and pushes Docker images to GitLab registry (main branch only) |
-
-
-### Running the pipeline
-
-Push to GitLab and the pipeline runs automatically. Make sure these CI/CD variables are set in GitLab:
-
-- `CI_REGISTRY_IMAGE` — set automatically by GitLab
-- No additional variables needed for test and build stages
+## CI/CD Pipeline (GitHub Actions)
+ 
+The `.github/workflows/ci.yml` file defines 2 jobs that run automatically on every push to `main`:
+ 
+| Job              | Description                                  |
+|------------------|----------------------------------------------|
+| `test-backend`   | Spins up PHP 8.3 + MySQL, runs Laravel tests |
+| `build-frontend` | Installs Node 20, builds Vue.js app          |
 
 ### Run tests locally
 
