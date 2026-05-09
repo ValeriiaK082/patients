@@ -39,11 +39,6 @@ jobs:
         run: |
           cp .env.example .env
           sed -i 's/DB_HOST=db/DB_HOST=127.0.0.1/' .env
-          sed -i 's/# DB_HOST=127.0.0.1/DB_HOST=127.0.0.1/' .env
-          sed -i 's/# DB_PORT=3306/DB_PORT=3306/' .env
-          sed -i 's/# DB_DATABASE=laravel/DB_DATABASE=labresults/' .env
-          sed -i 's/# DB_USERNAME=root/DB_USERNAME=labuser/' .env
-          sed -i 's/# DB_PASSWORD=/DB_PASSWORD=labpassword/' .env
           php artisan key:generate
           php artisan jwt:secret --force
           php artisan migrate --force
