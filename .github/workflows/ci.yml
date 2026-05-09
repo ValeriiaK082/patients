@@ -45,7 +45,7 @@ jobs:
           echo "DB_USERNAME=labuser" >> .env
           echo "DB_PASSWORD=labpassword" >> .env
           php artisan key:generate
-          php artisan jwt:secret
+          php artisan jwt:secret --force
           php artisan migrate --force
 
       - name: Run tests
